@@ -5,4 +5,3 @@ export const AboutPageAsync = lazy(() => new Promise(resolve => {
     // ТАК В РЕАЛЬНЫХ ПРОЕКТАХ НЕ ДЕЛАТЬ!!!!! ДЕЛАЕМ ДЛЯ КУРСА!
     setTimeout(() => resolve(import('./AboutPage')), 1500)
 }))
-
