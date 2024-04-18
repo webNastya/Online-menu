@@ -6,6 +6,7 @@ import { useTheme } from '../shared/ThemeProvider/hook/useTheme';
 import classNames from 'classnames';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
+import { NavBar } from 'widgets/NavBar';
 
 
 
@@ -14,9 +15,8 @@ const App = () => {
 
     return (
         <div className={classNames('app', theme)}>
+            <NavBar/>
             <button onClick={toggleTheme}>Tap</button>
-            <Link to={'/'}>Главная</Link>
-            <Link to={'/about'}>О сайте</Link>
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     <Route path={'/about'} element={<AboutPage />} />
