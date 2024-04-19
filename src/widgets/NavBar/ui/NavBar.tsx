@@ -1,6 +1,6 @@
 import classNames from "classnames"
-import { Link } from "react-router-dom"
-import cls from "../styles/NavBar.module.scss"
+import cls from "./NavBar.module.scss"
+import { AppLink } from "shared/ui/AppLink"
 
 interface NavBarProops {
     className?: string
@@ -9,8 +9,8 @@ interface NavBarProops {
 export const NavBar = ({className}: NavBarProops) => {
     return (
         <div className={classNames(cls.NavBar, className)}>
-            <Link to={'/'}>Главная</Link>
-            <Link to={'/about'}>О сайте</Link>
+            <AppLink to={'/'} className={cls.firstLink}>Главная</AppLink>
+            <AppLink to={'/about'}>О сайте</AppLink>
         </div>
     )
 }
