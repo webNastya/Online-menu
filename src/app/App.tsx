@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NavBar } from 'widgets/NavBar';
+import { ErrorPage } from 'pages/ErrorPage';
 
 
 
@@ -20,6 +21,7 @@ const App = () => {
                 <Routes>
                     <Route path={'/about'} element={<AboutPage />} />
                     <Route path={'/'} element={<MainPage />} />
+                    <Route path={'*'} element={<ErrorPage />} />
                 </Routes>
             </Suspense>
         </div>
