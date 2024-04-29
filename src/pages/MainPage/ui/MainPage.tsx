@@ -1,9 +1,10 @@
 import React from 'react';
+import { Categories } from 'widgets/Categories';
 
 const MainPage = () => {
     return (
         <div>
-            MainPage
+            <Categories />
         </div>
     );
 };
