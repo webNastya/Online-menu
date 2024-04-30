@@ -3,7 +3,14 @@
     text-align: center;
     gap: 2em;
 }
+.category {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 20px;
+    border: 2px solid var(--bars-bg-color);
+}
 .img {
     width: 100px;
     height: 100px;
+    fill: var(--primary-color);
 }

@@ -1,0 +1,36 @@
+.Card {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    position: relative;
+    top: 48px;
+}
+.cardContainer {
+    background-color: var(--bars-bg-color);
+    border-radius: 20px;
+    padding: 60px 16px 16px;
+}
+.twoBlocks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+.twoBlocks b {
+    font-size: 18px;
+}
+.price {
+    font-size: 20px;
+}
+.Button {
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 8px;
+    color: var(--primary-color);
+}
