@@ -1,6 +1,6 @@
 .Categories {
     display: flex;
-    text-align: center;
+    justify-content: center;
     gap: 2em;
 }
 .category {
@@ -13,4 +13,20 @@
     width: 100px;
     height: 100px;
     fill: var(--primary-color);
+}
+
+
+@media screen and (max-width: 900px) {
+    .img {
+        width: 70px;
+        height: 70px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .Categories {
+        gap: 1em;
+    }
+    .img {
+        display: none;
+    }
 }

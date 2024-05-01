@@ -34,3 +34,56 @@
     padding: 8px;
     color: var(--primary-color);
 }
+
+
+@media screen and (max-width: 900px) {
+    .img {
+        width: 200px;
+        height: 200px;
+    }
+    .Card {
+        width: 250px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .Card {
+        width: 100%;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    .cardContainer {
+        padding: 8px 8px 8px 60px;
+        position: relative;
+        left: -48px;
+    }
+    .img {
+        height: 150px;
+        width: 150px;
+        top: 0;
+        z-index: 1;
+    }
+    .price {
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 560px) {
+    .cardContainer {
+        width: 280px;
+        left: -24px;
+        font-size: 14px;
+    }
+    .img {
+        height: 120px;
+        width: 120px;
+        left: 24px;
+    }
+    .twoBlocks {
+        padding: 4px 0;
+    }
+    .twoBlocks b {
+        font-size: 16px;
+    }
+    .price {
+        font-size: 16px;
+    }
+}
