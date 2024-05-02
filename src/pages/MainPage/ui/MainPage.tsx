@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card } from 'widgets/Card';
+import { CardsContainer } from 'features/CardsContainer';
 import { Categories } from 'widgets/Categories';
 
 const MainPage = () => {
     return (
         <div>
             <Categories />
-            <Card />
+            <CardsContainer />
         </div>
     );
 };

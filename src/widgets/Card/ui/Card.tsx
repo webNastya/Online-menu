@@ -2,9 +2,11 @@ import classNames from "classnames"
 import cls from "./Card.module.scss"
 import { Button } from "shared/ui/Button"
 import btn from "shared/ui/Button/Button.module.scss"
+import { CardType } from "../type/CardType"
 
 interface CardProops {
     className?: string
+    data: CardType
 }
 
 const Image = ["https://opis-cdn.tinkoffjournal.ru/mercury/pasta-types-01.omayt7lwfv4z..png",
@@ -16,19 +18,20 @@ const Image = ["https://opis-cdn.tinkoffjournal.ru/mercury/pasta-types-01.omayt7
 ]
 
 
-export const Card = ({className}: CardProops) => {
+export const Card = ({className, data}: CardProops) => {
+    const {id, image, title, weight, description, price} = data
     return (
-        <div className={cls.Card}>
-            <img src={Image[3]} alt=""  className={cls.img}/>
+        <div className={classNames(cls.Card, className)}>
+            <img src={data.image} alt=""  className={cls.img}/>
             
             <div className={cls.cardContainer}>
                 <div className={cls.twoBlocks}>
-                    <b>Паста с креветками</b>
-                    <div>300г</div>
+                    <b>{data.title}</b>
+                    <div>{data.weight}г</div>
                 </div>
-                <div>Паста, специи, соус, королевские креветки</div>
+                <div>{data.description}</div>
                 <div className={cls.twoBlocks}>
-                    <div className={cls.price}>540 ₽</div>
+                    <div className={cls.price}>{data.price} ₽</div>
                     <Button className={classNames(cls.Button, btn.clear)}>В корзину</Button>
                 </div>
             </div>
