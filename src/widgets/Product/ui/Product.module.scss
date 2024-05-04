@@ -1,0 +1,83 @@
+.Product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    position: relative;
+    top: 48px;
+}
+.prodContainer {
+    width: 300px;
+    background-color: var(--bars-bg-color);
+    border-radius: 20px;
+    padding: 60px 16px 16px;
+}
+.twoBlocks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+.twoBlocks b {
+    font-size: 18px;
+}
+.price {
+    font-size: clamp(1rem, 0.6875rem + 1vw, 1.25rem);
+}
+.Button {
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 8px;
+    color: var(--primary-color);
+}
+
+
+@media screen and (max-width: 900px) {
+    .img {
+        width: 200px;
+        height: 200px;
+    }
+    .Card {
+        width: 250px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .Card {
+        width: 100%;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    .cardContainer {
+        padding: 8px 8px 8px 60px;
+        position: relative;
+        left: -48px;
+    }
+    .img {
+        height: 150px;
+        width: 150px;
+        top: 0;
+        z-index: 1;
+    }
+}
+@media screen and (max-width: 560px) {
+    .cardContainer {
+        width: 280px;
+        left: -24px;
+        font-size: 14px;
+    }
+    .img {
+        height: 120px;
+        width: 120px;
+        left: 24px;
+    }
+    .twoBlocks {
+        padding: 4px 0;
+    }
+    .twoBlocks b {
+        font-size: 16px;
+    }
+}

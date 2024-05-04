@@ -10,7 +10,7 @@ interface NavBarProops {
 export const NavBar = ({className}: NavBarProops) => {
     return (
         <div className={classNames(cls.NavBar, className)}>
-            <AppLink to={'/'} className={cls.firstLink}>Главная</AppLink>
+            <AppLink to={'/'} className={cls.firstLink}>Меню</AppLink>
             <AppLink to={'/about'}>О сайте</AppLink>
             <ThemeToggle/>
         </div>

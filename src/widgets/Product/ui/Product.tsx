@@ -1,12 +1,12 @@
 import classNames from "classnames"
-import cls from "./Card.module.scss"
+import cls from "./Product.module.scss"
 import { Button } from "shared/ui/Button"
 import btn from "shared/ui/Button/Button.module.scss"
-import { CardType } from "../type/CardType"
+import { ProductType } from "../type/ProductType"
 
-interface CardProops {
+interface ProductProops {
     className?: string
-    data: CardType
+    data: ProductType
 }
 
 const Image = ["https://opis-cdn.tinkoffjournal.ru/mercury/pasta-types-01.omayt7lwfv4z..png",
@@ -18,18 +18,18 @@ const Image = ["https://opis-cdn.tinkoffjournal.ru/mercury/pasta-types-01.omayt7
 ]
 
 
-export const Card = ({className, data}: CardProops) => {
+export const Product = ({className, data}: ProductProops) => {
     const {id, image, title, weight, description, price} = data
     return (
-        <div className={classNames(cls.Card, className)}>
+        <div className={classNames(cls.Product, className)}>
             <img src={data.image} alt=""  className={cls.img}/>
             
-            <div className={cls.cardContainer}>
+            <div className={cls.prodtContainer}>
                 <div className={cls.twoBlocks}>
                     <b>{data.title}</b>
                     <div>{data.weight}г</div>
                 </div>
-                <div>{data.description}</div>
+                <div>{data.composition}</div>
                 <div className={cls.twoBlocks}>
                     <div className={cls.price}>{data.price} ₽</div>
                     <Button className={classNames(cls.Button, btn.clear)}>В корзину</Button>

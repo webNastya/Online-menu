@@ -8,6 +8,7 @@ import { MainPage } from 'pages/MainPage';
 import { NavBar } from 'widgets/NavBar';
 import { ErrorPage } from 'pages/ErrorPage';
 import { Loader } from 'widgets/Loader';
+import { EditPage } from 'pages/Admin/Products/EditPage';
 
 
 
@@ -22,6 +23,13 @@ const App = () => {
                     <Routes>
                         <Route path={'/about'} element={<AboutPage />} />
                         <Route path={'/'} element={<MainPage />} />
+                        <Route path={'admin'} element={<EditPage />} >
+                            <Route index element={<EditPage />} />
+                            <Route path={'products'} element={<EditPage />} >
+                                <Route index element={<EditPage />} />
+                                <Route path={'edit'} element={<EditPage />} />
+                            </Route>
+                        </Route>
                         <Route path={'*'} element={<ErrorPage />} />
                     </Routes>
                 </Suspense>
