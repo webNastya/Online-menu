@@ -3,4 +3,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+}
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    input {
+        border: 3px solid var(--bars-color);
+        border-radius: 20px;
+        outline: none;
+        background-color: var(--bg-color);
+        height: 40px;
+        padding: 0 8px;
+    }
+}
+.Button {
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 8px;
+    color: var(--primary-color);
 }

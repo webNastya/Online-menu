@@ -1,6 +1,6 @@
 export interface ProductType {
     id: number,
-    image: string,
+    img: string,
     title: string,
     weight: number,
     description: string,
