@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import cls from './EditPage.module.scss';
 import axios, { toFormData } from 'axios';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import btn from 'shared/ui/Button/Button.module.scss';
+import { Button, ThemeButton } from 'shared/ui/Button';
 
 
 export const EditPage = () => {
@@ -12,8 +13,13 @@ export const EditPage = () => {
     const [weight, setWeight] = useState<number>(0)
     const [price, setPrice] = useState<number>(0)
 
+    const uploadFileRef = useRef<HTMLInputElement>()
 
-    const handleFileUpload = (event: any) => {
+    const handleFileUploadClick = () => {
+        uploadFileRef.current.click()
+    }
+
+    const handleFileUploadChange = (event: any) => {
         const file = event.target.files[0]
         
         setImg(file)
@@ -37,18 +43,18 @@ export const EditPage = () => {
 
     return (
         <div className={classNames(cls.EditPage)}>
-            <div className={classNames(cls.inputs)}>
-                <input type='text' 
-                onChange={(e:ChangeEvent<HTMLInputElement>)=>{setTitle(e.target.value)}}/>
-                <input type='text' 
-                onChange={(e:ChangeEvent<HTMLInputElement>)=>{setComposition(e.target.value)}}/>
-                <input type='text' 
-                onChange={(e:ChangeEvent<HTMLInputElement>)=>{setWeight(+e.target.value)}}/>
-                <input type='text' 
-                onChange={(e:ChangeEvent<HTMLInputElement>)=>{setPrice(+e.target.value)}}/>
-            </div>
-            <input type='file' onChange={handleFileUpload}/>
-            <button type='submit' className={classNames(cls.Button, btn.clear)} onClick={handleSubmit}>submit</button>
+            <input type='text' 
+            onChange={(e:ChangeEvent<HTMLInputElement>)=>{setTitle(e.target.value)}}/>
+            <input type='text' 
+            onChange={(e:ChangeEvent<HTMLInputElement>)=>{setComposition(e.target.value)}}/>
+            <input type='text' 
+            onChange={(e:ChangeEvent<HTMLInputElement>)=>{setWeight(+e.target.value)}}/>
+            <input type='text' 
+            onChange={(e:ChangeEvent<HTMLInputElement>)=>{setPrice(+e.target.value)}}/>
+            
+            <input hidden ref={uploadFileRef} type='file' onChange={handleFileUploadChange}/>
+            <Button theme={ThemeButton.DEFAULT} onClick={handleFileUploadClick}>Выберите файл</Button>
+            <Button type='submit' theme={ThemeButton.DEFAULT} onClick={handleSubmit}>submit</Button>
         </div>
     );
 };

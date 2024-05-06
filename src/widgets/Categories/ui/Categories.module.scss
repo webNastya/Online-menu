@@ -3,12 +3,14 @@
     justify-content: center;
     gap: 2em;
 }
+
 .category {
     cursor: pointer;
     padding: 8px;
     border-radius: 20px;
     border: 2px solid var(--bars-bg-color);
 }
+
 .img {
     width: 100px;
     height: 100px;
@@ -22,10 +24,12 @@
         height: 70px;
     }
 }
+
 @media screen and (max-width: 750px) {
     .Categories {
         gap: 1em;
     }
+    
     .img {
         display: none;
     }

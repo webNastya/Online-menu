@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import cls from "./Product.module.scss"
-import { Button } from "shared/ui/Button"
+import { Button, ThemeButton } from "shared/ui/Button"
 import btn from "shared/ui/Button/Button.module.scss"
 import { ProductType } from "../type/ProductType"
 
@@ -23,7 +23,7 @@ export const Product = ({className, data}: ProductProops) => {
                 <div>{data.composition}</div>
                 <div className={cls.twoBlocks}>
                     <div className={cls.price}>{data.price} ₽</div>
-                    <Button className={classNames(cls.Button, btn.clear)}>В корзину</Button>
+                    <Button theme={ThemeButton.DEFAULT}>В корзину</Button>
                 </div>
             </div>
         </div>
