@@ -1,8 +1,8 @@
 import cls from "./ProductList.module.scss"
 import { useEffect, useState } from "react"
-import { ProductType } from "widgets/Product/type/ProductType"
-import { Product } from "widgets/Product"
 import axios from "axios"
+import { ProductType } from "entities/Product/type/ProductType"
+import { Product } from "entities/Product"
 
 interface ProductListProops {
     className?: string

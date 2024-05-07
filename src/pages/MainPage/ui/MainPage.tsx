@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductList } from 'features/ProductList';
+import { ProductList } from 'widgets/ProductList';
 import { Categories } from 'widgets/Categories';
 
 const MainPage = () => {

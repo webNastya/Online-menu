@@ -9,6 +9,7 @@ import { NavBar } from 'widgets/NavBar';
 import { ErrorPage } from 'pages/ErrorPage';
 import { Loader } from 'widgets/Loader';
 import { EditPage } from 'pages/Admin/Products/EditPage';
+import { AdminProductsPage } from 'pages/Admin/Products';
 
 
 
@@ -23,10 +24,9 @@ const App = () => {
                     <Routes>
                         <Route path={'/about'} element={<AboutPage />} />
                         <Route path={'/'} element={<MainPage />} />
-                        <Route path={'admin'} element={<EditPage />} >
-                            <Route index element={<EditPage />} />
-                            <Route path={'products'} element={<EditPage />} >
-                                <Route index element={<EditPage />} />
+                        <Route path={'admin'}>
+                            <Route path={'products'} >
+                                <Route index element={<AdminProductsPage />}/>
                                 <Route path={'edit'} element={<EditPage />} />
                             </Route>
                         </Route>

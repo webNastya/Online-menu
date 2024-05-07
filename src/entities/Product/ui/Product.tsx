@@ -1,7 +1,6 @@
 import classNames from "classnames"
 import cls from "./Product.module.scss"
 import { Button, ThemeButton } from "shared/ui/Button"
-import btn from "shared/ui/Button/Button.module.scss"
 import { ProductType } from "../type/ProductType"
 
 interface ProductProops {
@@ -10,19 +9,23 @@ interface ProductProops {
 }
 
 export const Product = ({className, data}: ProductProops) => {
-    const {id, img, title, weight, description, price} = data
+    const {id, img, title, weight, description, composition, price} = data
     return (
         <div className={classNames(cls.Product, className)}>
-            <img src={data.img} alt=""  className={cls.img}/>
+            <img src={`http://localhost:3001/public/${img}`} className={cls.img}/>
             
             <div className={cls.prodContainer}>
                 <div className={cls.twoBlocks}>
-                    <b>{data.title}</b>
-                    <div>{data.weight}г</div>
+                    <b>{title}</b>
+                    <div>{`${weight}г`}</div>
                 </div>
-                <div>{data.composition}</div>
+                <div>
+                    {composition}
+                </div>
                 <div className={cls.twoBlocks}>
-                    <div className={cls.price}>{data.price} ₽</div>
+                    <div className={cls.price}>
+                        {`${price} ₽`}
+                    </div>
                     <Button theme={ThemeButton.DEFAULT}>В корзину</Button>
                 </div>
             </div>

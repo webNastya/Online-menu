@@ -1,0 +1,39 @@
+.AdminProduct {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.index {
+    width: 24px;
+}
+
+.id {
+    width: 24px;
+}
+
+.img {
+    img {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        position: relative;
+    }
+}
+
+.title {
+    width: 200px;
+}
+
+.weight {
+    width: 40px;
+}
+
+.composition {
+    width: 200px;
+}
+
+.price {
+    width: 60px;
+}

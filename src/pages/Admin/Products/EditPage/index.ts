@@ -1,1 +1,1 @@
-export { EditPage } from "./ui/EditPage"
+export { EditPageAsync as EditPage } from "./ui/EditPage.async"
