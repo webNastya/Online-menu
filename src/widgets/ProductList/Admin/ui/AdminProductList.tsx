@@ -3,14 +3,31 @@ import { useCallback, useEffect, useState } from "react"
 import axios from "axios"
 import { AdminProduct } from "entities/Product/Admin/ui/AdminProduct"
 import { ProductType } from "entities/Product/type/ProductType"
+import { AddProduct } from "entities/Product/Admin/Add"
+import { Button, ThemeButton } from "shared/ui/Button"
 
 interface ProductListProops {
     className?: string
 }
 
 export const AdminProductList = ({className}: ProductListProops) => {
+    const [isPopupActive, setIsPopupActive] = useState<boolean>(true)
     const [cards, setCards] = useState<ProductType[]>([])
 
+    const handlerOpenPopap = () => {
+        setIsPopupActive(active => !active)
+    }
+    
+    const handleEdit = useCallback((id: number) => {
+        axios
+            .patch("http://localhost:3001/products/"+id)
+            .then(res => {
+            })
+            .catch(er => {
+                console.log(er)
+            })
+    }, [cards])
+    
     const handleDelete = useCallback((id: number) => {
         axios
             .delete("http://localhost:3001/products/"+id)
@@ -32,6 +49,16 @@ export const AdminProductList = ({className}: ProductListProops) => {
 
     return (
         <div className={cls.AdminProductList}>
+            <AddProduct
+                textButtonForm={"Сохранить"}
+                handlerOpenPopap={handlerOpenPopap}
+                isPopupActive={isPopupActive}
+            />
+
+            <Button theme={ThemeButton.DEFAULT} onClick={handlerOpenPopap}>
+                Добавить продукт
+            </Button>
+
             <div className={cls.titlesContainer}>
                 <div className={cls.index}>
                     №
@@ -60,6 +87,7 @@ export const AdminProductList = ({className}: ProductListProops) => {
                     key={cardData.id}
                     index={index+1}
                     data={cardData}
+                    handleEdit={handleEdit}
                     handleDelete={handleDelete}
                 />
             ))}

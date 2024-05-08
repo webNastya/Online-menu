@@ -8,7 +8,7 @@ const AdminProductsPage = () => {
 
     return (
         <div className={classNames(cls.AdminProductsPage)}>
-            <AddProduct/>
+            {/* <AddProduct textButtonForm={"Добавить"}/> */}
             <AdminProductList />
         </div>
     );

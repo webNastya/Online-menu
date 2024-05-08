@@ -3,14 +3,20 @@ import cls from "./AddProduct.module.scss"
 import { ChangeEvent, useRef, useState } from "react"
 import axios, { toFormData } from "axios"
 import classNames from "classnames"
+import { Popup } from "shared/ui/Popup"
 
-export const AddProduct = () => {
+interface FormProps {
+    textButtonForm: string
+    handlerOpenPopap: () => void
+    isPopupActive: boolean
+}
+
+export const AddProduct = ({textButtonForm, handlerOpenPopap, isPopupActive}: FormProps) => {
     const [title, setTitle] = useState<string>()
     const [composition, setComposition] = useState<string>()
     const [img, setImg] = useState<File>()
     const [weight, setWeight] = useState<number>(0)
     const [price, setPrice] = useState<number>(0)
-    const [isPopupActive, setIsPopupActive] = useState<boolean>(true)
 
     const uploadFileRef = useRef<HTMLInputElement>()
 
@@ -20,7 +26,6 @@ export const AddProduct = () => {
 
     const handleFileUploadChange = (event: any) => {
         const file = event.target.files[0]
-        
         setImg(file)
     }
 
@@ -41,57 +46,36 @@ export const AddProduct = () => {
             })
     }
 
-    const handlerOpenPopap = () => {
-        setIsPopupActive(active => !active)
-    }
-
     return(
-        <div>
-            <Button theme={ThemeButton.DEFAULT} onClick={handlerOpenPopap}>
-                Добавить продукт
-            </Button>
-
-            <div hidden={isPopupActive} className={cls.AddProductPopapWrap}
-                onClick={handlerOpenPopap}>
-                <div className={cls.AddProductPopap}
-                        onClick={(e)=>e.stopPropagation()}>
-                    <Button 
-                        className={classNames(cls.closeBtn)}
-                        theme={ThemeButton.DEFAULT} 
-                        onClick={handlerOpenPopap}
-                    >X</Button>
-
-                    <div className={classNames(cls.AddProduct)}>
-                        <input type='text' 
-                            placeholder='Заголовок'
-                            onChange={(e:ChangeEvent<HTMLInputElement>)=>{setTitle(e.target.value)}}/>
-                        <input type='text' 
-                            placeholder='Ингриндиенты'
-                            onChange={(e:ChangeEvent<HTMLInputElement>)=>{setComposition(e.target.value)}}/>
-                        <input type='text' 
-                            placeholder='Вес'
-                            onChange={(e:ChangeEvent<HTMLInputElement>)=>{setWeight(+e.target.value)}}/>
-                        <input type='text' 
-                            placeholder='Цена'
-                            onChange={(e:ChangeEvent<HTMLInputElement>)=>{setPrice(+e.target.value)}}/>
-                        
-                        <input hidden ref={uploadFileRef} type='file' onChange={handleFileUploadChange}/>
-                        <Button
-                            theme={ThemeButton.DEFAULT}
-                            className={cls.addFileBtn}
-                            onClick={handleFileUploadClick}>
-                                Выберите файл
-                        </Button>
-                        <Button
-                            type='submit'
-                            theme={ThemeButton.DEFAULT}
-                            onClick={handleSubmit}>
-                                Добавить
-                        </Button>
-                    </div>
-                </div>
+        <Popup handlerOpenPopap={handlerOpenPopap } isPopupActive={isPopupActive}>
+            <div className={classNames(cls.AddProduct)}>
+                <input type='text' 
+                    placeholder='Заголовок'
+                    onChange={(e:ChangeEvent<HTMLInputElement>)=>{setTitle(e.target.value)}}/>
+                <input type='text' 
+                    placeholder='Ингриндиенты'
+                    onChange={(e:ChangeEvent<HTMLInputElement>)=>{setComposition(e.target.value)}}/>
+                <input type='text' 
+                    placeholder='Вес'
+                    onChange={(e:ChangeEvent<HTMLInputElement>)=>{setWeight(+e.target.value)}}/>
+                <input type='text' 
+                    placeholder='Цена'
+                    onChange={(e:ChangeEvent<HTMLInputElement>)=>{setPrice(+e.target.value)}}/>
+                
+                <input hidden ref={uploadFileRef} type='file' onChange={handleFileUploadChange}/>
+                <Button
+                    theme={ThemeButton.DEFAULT}
+                    className={cls.addFileBtn}
+                    onClick={handleFileUploadClick}>
+                        Выберите файл
+                </Button>
+                <Button
+                    type='submit'
+                    theme={ThemeButton.DEFAULT}
+                    onClick={handleSubmit}>
+                        {textButtonForm}
+                </Button>
             </div>
-            
-        </div>
+        </Popup>
     )
 }
