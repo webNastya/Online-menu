@@ -1,6 +1,6 @@
 import cls from "./AdminProductList.module.scss"
 import { useCallback, useEffect, useState } from "react"
-import axios from "axios"
+import axios, { toFormData } from "axios"
 import { AdminProduct } from "entities/Product/Admin/ui/AdminProduct"
 import { ProductType } from "entities/Product/type/ProductType"
 import { AddProduct } from "entities/Product/Admin/Add"
@@ -11,33 +11,14 @@ interface ProductListProops {
 }
 
 export const AdminProductList = ({className}: ProductListProops) => {
-    const [isPopupActive, setIsPopupActive] = useState<boolean>(true)
     const [cards, setCards] = useState<ProductType[]>([])
 
-    const handlerOpenPopap = () => {
-        setIsPopupActive(active => !active)
+    const editCallBack = () => {
+        // Обновить карточку
     }
-    
-    const handleEdit = useCallback((id: number) => {
-        axios
-            .patch("http://localhost:3001/products/"+id)
-            .then(res => {
-            })
-            .catch(er => {
-                console.log(er)
-            })
-    }, [cards])
-    
-    const handleDelete = useCallback((id: number) => {
-        axios
-            .delete("http://localhost:3001/products/"+id)
-            .then(res => {
-                setCards(cards.filter(card => card.id !== id))
-            })
-            .catch(er => {
-                console.log(er)
-            })
-    }, [cards])
+    const deleteCallBack = (id: number) => {
+        setCards(cards => cards.filter(card => card.id !== id))
+    }
 
     useEffect(()=>{
         axios
@@ -49,15 +30,7 @@ export const AdminProductList = ({className}: ProductListProops) => {
 
     return (
         <div className={cls.AdminProductList}>
-            <AddProduct
-                textButtonForm={"Сохранить"}
-                handlerOpenPopap={handlerOpenPopap}
-                isPopupActive={isPopupActive}
-            />
-
-            <Button theme={ThemeButton.DEFAULT} onClick={handlerOpenPopap}>
-                Добавить продукт
-            </Button>
+            <AddProduct/>
 
             <div className={cls.titlesContainer}>
                 <div className={cls.index}>
@@ -87,8 +60,8 @@ export const AdminProductList = ({className}: ProductListProops) => {
                     key={cardData.id}
                     index={index+1}
                     data={cardData}
-                    handleEdit={handleEdit}
-                    handleDelete={handleDelete}
+                    deleteCallback={deleteCallBack}
+                    editCallback={editCallBack}
                 />
             ))}
         </div>

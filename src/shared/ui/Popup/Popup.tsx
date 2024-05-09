@@ -6,15 +6,16 @@ import { Button, ThemeButton } from "../Button"
 interface PopupProops {
     handlerOpenPopap: () => void
     isPopupActive: boolean
+    position?: "center" | "top"
 }
 
 export const Popup:FC<PopupProops> = (props) => {
-    const {handlerOpenPopap, isPopupActive, children} = props
+    const {handlerOpenPopap, isPopupActive, position = "center", children} = props
 
     return (
         <div hidden={isPopupActive} className={cls.PopupWrap}
             onClick={handlerOpenPopap}>
-            <div className={cls.popup}
+            <div className={classNames(cls.popup, cls[position])}
                     onClick={(e)=>e.stopPropagation()}>
                 <Button 
                     className={classNames(cls.closeBtn)}

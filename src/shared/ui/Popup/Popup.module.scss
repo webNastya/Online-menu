@@ -8,9 +8,8 @@
 }
 
 .popup {
-    position: absolute;
-    top: 20%;
     left: 50%;
+    position: absolute;
     transform: translateX(-50%);
     background-color: var(--bg-color);
     padding: 56px 20px 20px;
@@ -22,4 +21,12 @@
     position: absolute;
     top: 8px;
     right: 8px;
+}
+
+.top {
+    top: 5%;
+}
+
+.center {
+    top: 20%;
 }
