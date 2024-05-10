@@ -1,25 +1,27 @@
 import { Button, ThemeButton } from "shared/ui/Button"
-import cls from "./EditProduct.module.scss"
+import cls from "./FormProduct.module.scss"
 import { ChangeEvent, FC, useRef, useState } from "react"
-import axios, { toFormData } from "axios"
 import classNames from "classnames"
 import { Popup } from "shared/ui/Popup"
-import Edit from "../../../assets/edit.svg"
 import { ProductType } from "entities/Product/type/ProductType"
+import { Input } from "shared/ui/Input"
 
-interface EditProductProps {
+interface FormProductProps {
     data: ProductType,
-    editCallback: () => void
+    onSubmit: (data: ProductType) => void
+    mainBtnBody: any
+    submitBtnText: string
 }
 
-export const EditProduct:FC<EditProductProps> = ({data, editCallback}) => {
+export const FormProduct:FC<FormProductProps> = ({data, onSubmit, mainBtnBody, submitBtnText}) => {
     const [title, setTitle] = useState<string>(data.title)
     const [composition, setComposition] = useState<string>(data.composition)
     const [img, setImg] = useState<File>()
+    const [imgSource, setImgSource] = useState<string>(data.img ? `http://localhost:3001/public/${data.img}` : '')
     const [weight, setWeight] = useState<number>(data.weight)
     const [price, setPrice] = useState<number>(data.price)
 
-    const [isPopupActive, setIsPopupActive] = useState<boolean>(true)
+    const [isPopupActive, setIsPopupActive] = useState<boolean>(false)
     const uploadFileRef = useRef<HTMLInputElement>()
 
     const handlerOpenPopap = () => {
@@ -28,33 +30,18 @@ export const EditProduct:FC<EditProductProps> = ({data, editCallback}) => {
 
     const handleFileUploadClick = () => {
         uploadFileRef.current.click()
+        console.log(data.img);
+        
     }
 
     const handleFileUploadChange = (event: any) => {
         const imageFile = event.target.files[0]
         setImg(imageFile)
+        setImgSource(URL.createObjectURL(imageFile))
     }
 
-    const handleEdit = (data: ProductType) => {
-        const formData = toFormData(data)
-
-        axios
-            .patch("http://localhost:3001/products/"+data.id, 
-                formData,
-                { headers: {
-                    'Content-Type': 'multipart/form-data'
-                }}
-            )
-            .then(res => {
-                editCallback()
-            })
-            .catch(er => {
-                console.log(er)
-            })
-    }
-
-    const handleSubmit = () => {
-        handleEdit({
+    const handlerSubmit = () => {
+        onSubmit({
             id: data.id,
             img: img ?? "",
             title: title,
@@ -65,55 +52,59 @@ export const EditProduct:FC<EditProductProps> = ({data, editCallback}) => {
         })
         handlerOpenPopap()
     }
-
+    
     return(
         <div>
             <Button 
                 theme={ThemeButton.DEFAULT} 
                 onClick={handlerOpenPopap}>
-                <Edit className={cls.svg}/>
+                    { mainBtnBody }
             </Button>
-
             <Popup 
                 position="top"
                 handlerOpenPopap={handlerOpenPopap}
                 isPopupActive={isPopupActive}
             >
-                <div className={classNames(cls.EditProduct)}>
+                <div className={classNames(cls.FormProduct)}>
                     {/* Product text Fields */}
-                    <input type='text' 
+                    <Input type='text' 
                         value={title}
                         placeholder='Заголовок'
                         onChange={(e:ChangeEvent<HTMLInputElement>)=>{setTitle(e.target.value)}}/>
-                    <input type='text' 
+                    <Input type='text' 
                         value={composition}
                         placeholder='Ингриндиенты'
                         onChange={(e:ChangeEvent<HTMLInputElement>)=>{setComposition(e.target.value)}}/>
-                    <input type='text' 
+                    <Input type='text' 
                         value={weight}
                         placeholder='Вес'
                         onChange={(e:ChangeEvent<HTMLInputElement>)=>{setWeight(+e.target.value)}}/>
-                    <input type='text' 
+                    <Input type='text' 
                         value={price}
                         placeholder='Цена'
                         onChange={(e:ChangeEvent<HTMLInputElement>)=>{setPrice(+e.target.value)}}/>
 
                     {/* Product Image */}
-                    <img src={`http://localhost:3001/public/${data.img}`} className={cls.img}/>
+                    
+                    <img hidden={!imgSource} src={imgSource} className={cls.img}
+                    />
                     <input hidden ref={uploadFileRef} type='file' onChange={handleFileUploadChange}/>
                     <Button
                         theme={ThemeButton.DEFAULT}
-                        className={cls.addFileBtn}
+                        className={classNames(cls.addFileBtn, {[cls.imgFiled]: img})}
                         onClick={handleFileUploadClick}>
-                            Выберите файл
+                            { img
+                                ? "Сменить фото"
+                                : "Выберите фото"
+                            }
                     </Button>
 
                     {/* Submit */}
                     <Button
                         type='submit'
                         theme={ThemeButton.DEFAULT}
-                        onClick={handleSubmit}>
-                            Cохранить
+                        onClick={handlerSubmit}>
+                            { submitBtnText }
                     </Button>
                 </div>
             </Popup>

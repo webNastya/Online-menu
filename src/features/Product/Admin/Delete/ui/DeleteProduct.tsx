@@ -2,7 +2,7 @@ import { Button, ThemeButton } from "shared/ui/Button"
 import cls from "./DeleteProduct.module.scss"
 import { FC } from "react"
 import axios from "axios"
-import Delete from "../../../assets/delete.svg"
+import Delete from "../../assets/delete.svg"
 
 interface DeleteProductProps {
     id: number,

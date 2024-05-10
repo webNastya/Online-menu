@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import cls from './AdminProductsPage.module.scss';
 import { AdminProductList } from 'widgets/ProductList/Admin';
-import { AddProduct } from 'entities/Product/Admin/Add';
+import { AddProduct } from 'features/Product/Admin/Add';
 
 
 const AdminProductsPage = () => {

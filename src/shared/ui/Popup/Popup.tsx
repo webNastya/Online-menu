@@ -13,17 +13,21 @@ export const Popup:FC<PopupProops> = (props) => {
     const {handlerOpenPopap, isPopupActive, position = "center", children} = props
 
     return (
-        <div hidden={isPopupActive} className={cls.PopupWrap}
-            onClick={handlerOpenPopap}>
-            <div className={classNames(cls.popup, cls[position])}
-                    onClick={(e)=>e.stopPropagation()}>
-                <Button 
-                    className={classNames(cls.closeBtn)}
-                    theme={ThemeButton.DEFAULT} 
-                    onClick={handlerOpenPopap}
-                >X</Button>
-            {children}
-            </div>
-        </div>
+        <>
+            { isPopupActive &&
+                <div hidden={!isPopupActive} className={cls.PopupWrap}
+                    onClick={handlerOpenPopap}>
+                    <div className={classNames(cls.popup, cls[position])}
+                            onClick={(e)=>e.stopPropagation()}>
+                        <Button 
+                            className={classNames(cls.closeBtn)}
+                            theme={ThemeButton.DEFAULT} 
+                            onClick={handlerOpenPopap}
+                        >X</Button>
+                    {children}
+                    </div>
+                </div>
+            }
+        </>
     )
 }
