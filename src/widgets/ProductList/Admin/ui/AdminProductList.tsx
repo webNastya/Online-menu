@@ -54,6 +54,9 @@ export const AdminProductList = ({className}: ProductListProops) => {
                 <div className={cls.price}>
                     Цена
                 </div>
+                <div className={cls.category}>
+                    Категория
+                </div>
             </div>
             {cards.map((cardData, index) => (
                 <AdminProduct 

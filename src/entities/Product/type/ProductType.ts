@@ -6,6 +6,7 @@ export class ProductType {
     description: string;
     composition: string;
     price: number;
+    category: string;
     constructor() {
         this.id = 0;
         this.img = "";
@@ -14,5 +15,6 @@ export class ProductType {
         this.description = "";
         this.composition = "";
         this.price = 0;
+        this.category = "";
     }
 }

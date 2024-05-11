@@ -9,7 +9,7 @@ interface ProductProops {
 }
 
 export const Product = ({className, data}: ProductProops) => {
-    const {id, img, title, weight, description, composition, price} = data
+    const {id, img, title, weight, description, composition, price, category} = data
     return (
         <div className={classNames(cls.Product, className)}>
             <img src={`http://localhost:3001/public/${img}`} className={cls.img}/>

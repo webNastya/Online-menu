@@ -12,6 +12,12 @@
     }
 }
 
+.inputNumbers {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 .addFileBtn {
     color: var(--primary-color);
     border-color: var(--bars-bg-color);
