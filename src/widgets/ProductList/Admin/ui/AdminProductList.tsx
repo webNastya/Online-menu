@@ -1,7 +1,7 @@
 import cls from "./AdminProductList.module.scss"
 import { useCallback, useEffect, useState } from "react"
 import axios, { toFormData } from "axios"
-import { AdminProduct } from "entities/Product/Admin/ui/AdminProduct"
+import { AdminProduct } from "features/Product/Admin/ui/AdminProduct"
 import { ProductType } from "entities/Product/type/ProductType"
 import { AddProduct } from "features/Product/Admin/Add"
 import { Button, ThemeButton } from "shared/ui/Button"

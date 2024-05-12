@@ -1,12 +1,13 @@
-import { FC, useEffect, useState } from "react"
+import { ChangeEvent, FC } from "react"
 import axios, { toFormData } from "axios"
 import cls from "./SelectCategory.module.scss"
 
 interface SelectCategoryProps {
     category: string
+    setCategory: (cat: string) => void
 }
 
-export const SelectCategory:FC<SelectCategoryProps> = ({category}) => {
+export const SelectCategory:FC<SelectCategoryProps> = ({category, setCategory}) => {
     // const handleEdit = (data: ProductType) => {
         // const formData = toFormData(data)
 
@@ -26,10 +27,18 @@ export const SelectCategory:FC<SelectCategoryProps> = ({category}) => {
     // }
     const options = [ "Выберите Категорию", "Паста", "Пицца" ]
 
+    const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        const option = +e.target.value
+        setCategory(options[option])
+	}    
+
     return(
-        <select className={cls.select} value={category}>
-            {options.map((option, index) => (
-                <option value={index}>{option}</option>
+        <select className={cls.select}
+            value={options.findIndex((cat) => cat === category)} 
+            onChange={handleSelectChange}
+        >
+            {options.map((cat, index) => (
+                <option value={index}>{cat}</option>
             ))}
         </select>
     )

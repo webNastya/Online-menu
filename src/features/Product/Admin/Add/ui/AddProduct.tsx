@@ -1,5 +1,5 @@
 import axios, { toFormData } from "axios"
-import { FormProduct } from "widgets/Product/Admin/Form"
+import { FormProduct } from "features/Product/Admin/Form"
 import { ProductType } from "entities/Product/type/ProductType"
 
 const data = new ProductType()

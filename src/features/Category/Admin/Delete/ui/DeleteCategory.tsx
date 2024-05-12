@@ -1,18 +1,18 @@
 import { Button, ThemeButton } from "shared/ui/Button"
-import cls from "./DeleteProduct.module.scss"
+import cls from "./DeleteCategory.module.scss"
 import { FC } from "react"
 import axios from "axios"
 import Delete from "shared/assets/btn-delete.svg"
 
-interface DeleteProductProps {
+interface DeleteCategoryProps {
     id: number,
     deleteCallback: (id: number) => void
 }
 
-export const DeleteProduct:FC<DeleteProductProps> = ({id, deleteCallback}) => {
+export const DeleteCategory:FC<DeleteCategoryProps> = ({id, deleteCallback}) => {
     const handleDelete = (id: number) => {
         axios
-            .delete("http://localhost:3001/products/"+id)
+            .delete("http://localhost:3001/categories/"+id)
             .then(res => {
                 deleteCallback(id)
             })

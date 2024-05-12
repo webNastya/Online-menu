@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import cls from "./AdminProduct.module.scss"
-import { ProductType } from "../../type/ProductType"
+import { ProductType } from "../../../../entities/Product/type/ProductType"
 import { EditProduct } from "features/Product/Admin/Edit/ui/EditProduct"
 import { DeleteProduct } from "features/Product/Admin/Delete"
 

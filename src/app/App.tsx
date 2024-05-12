@@ -1,5 +1,5 @@
-import React, { Suspense, useContext, useState } from 'react';
-import {Link, Route, Routes} from 'react-router-dom';
+import { Suspense } from 'react';
+import {Route, Routes} from 'react-router-dom';
 import './styles/index.scss';
 import { useTheme } from '../shared/config/ThemeProvider/hook/useTheme';
 import classNames from 'classnames';
@@ -8,8 +8,8 @@ import { MainPage } from 'pages/MainPage';
 import { NavBar } from 'widgets/NavBar';
 import { ErrorPage } from 'pages/ErrorPage';
 import { Loader } from 'widgets/Loader';
-import { EditPage } from 'pages/Admin/Products/EditPage';
 import { AdminProductsPage } from 'pages/Admin/Products';
+import { AdminCategoriesPage } from 'pages/Admin/Categories';
 
 
 
@@ -27,7 +27,9 @@ const App = () => {
                         <Route path={'admin'}>
                             <Route path={'products'} >
                                 <Route index element={<AdminProductsPage />}/>
-                                <Route path={'edit'} element={<EditPage />} />
+                            </Route>
+                            <Route path={'categories'} >
+                                <Route index element={<AdminCategoriesPage />}/>
                             </Route>
                         </Route>
                         <Route path={'*'} element={<ErrorPage />} />

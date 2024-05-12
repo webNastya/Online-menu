@@ -1,21 +1,21 @@
 import { FC } from "react"
 import axios, { toFormData } from "axios"
-import { ProductType } from "entities/Product/type/ProductType"
 import Edit from "shared/assets/btn-edit.svg"
-import cls from "./EditProduct.module.scss"
-import { FormProduct } from "features/Product/Admin/Form"
+import cls from "./EditCategory.module.scss"
+import { CategoryType } from "entities/Category/type/CategoryType"
+import { FormCategory } from "../../Form"
 
-interface EditProductProps {
-    data: ProductType,
+interface EditCategoryProps {
+    data: CategoryType,
     editCallback: () => void
 }
 
-export const EditProduct:FC<EditProductProps> = ({data, editCallback}) => {
-    const handleEdit = (data: ProductType) => {
+export const EditCategory:FC<EditCategoryProps> = ({data, editCallback}) => {
+    const handleEdit = (data: CategoryType) => {
         const formData = toFormData(data)
 
         axios
-            .patch("http://localhost:3001/products/"+data.id, 
+            .patch("http://localhost:3001/categories/"+data.id, 
                 formData,
                 { headers: {
                     'Content-Type': 'multipart/form-data'
@@ -30,7 +30,7 @@ export const EditProduct:FC<EditProductProps> = ({data, editCallback}) => {
     }
     
     return(
-        <FormProduct
+        <FormCategory
             data={data}
             onSubmit={ handleEdit }
             mainBtnBody={ <Edit className={cls.svg}/> }

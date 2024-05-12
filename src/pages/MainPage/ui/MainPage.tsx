@@ -1,4 +1,3 @@
-import React from 'react';
 import { ProductList } from 'widgets/ProductList';
 import { Categories } from 'widgets/Categories';
 
