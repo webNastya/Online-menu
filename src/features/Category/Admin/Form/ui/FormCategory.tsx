@@ -14,7 +14,7 @@ interface FormCategoryProps {
 }
 
 export const FormCategory:FC<FormCategoryProps> = ({data, onSubmit, mainBtnBody, submitBtnText}) => {
-    const [title, setTitle] = useState<string>(data.title)
+    const [name, setName] = useState<string>(data.name)
     const [img, setImg] = useState<File>()
     const [imgSource, setImgSource] = useState<string>(data.img ? `http://localhost:3001/public/${data.img}` : '')
 
@@ -41,7 +41,7 @@ export const FormCategory:FC<FormCategoryProps> = ({data, onSubmit, mainBtnBody,
         onSubmit({
             id: data.id,
             img: img ?? "",
-            title: title
+            name: name
         })
         handlerOpenPopap()
     }
@@ -59,20 +59,20 @@ export const FormCategory:FC<FormCategoryProps> = ({data, onSubmit, mainBtnBody,
                 toggleActive={handlerOpenPopap}            >
                 <div className={classNames(cls.FormCategory)}>
                     <Input type='text' 
-                        value={title}
+                        value={name}
                         placeholder='Заголовок'
-                        onChange={(e:ChangeEvent<HTMLInputElement>)=>{setTitle(e.target.value)}}/>
+                        onChange={(e:ChangeEvent<HTMLInputElement>)=>{setName(e.target.value)}}/>
                                         
                     <img hidden={!imgSource} src={imgSource} className={cls.img}
                     />
-                    <input hidden ref={uploadFileRef} type='file' onChange={handleFileUploadChange}/>
+                    <input hidden ref={uploadFileRef} type='file' accept=".svg" onChange={handleFileUploadChange}/>
                     <Button
                         theme={ThemeButton.DEFAULT}
                         className={classNames(cls.addFileBtn, {[cls.imgFiled]: img})}
                         onClick={handleFileUploadClick}>
                             { img
                                 ? "Сменить фото"
-                                : "Выберите фото"
+                                : "Выберите фото.svg"
                             }
                     </Button>
                     <Button

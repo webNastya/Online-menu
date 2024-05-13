@@ -1,8 +1,8 @@
 import { Button, ThemeButton } from "shared/ui/Button"
 import cls from "./DeleteCategory.module.scss"
 import { FC } from "react"
-import axios from "axios"
 import Delete from "shared/assets/btn-delete.svg"
+import AdminCategoryService from "../../api/api.adminCategory"
 
 interface DeleteCategoryProps {
     id: number,
@@ -11,13 +11,9 @@ interface DeleteCategoryProps {
 
 export const DeleteCategory:FC<DeleteCategoryProps> = ({id, deleteCallback}) => {
     const handleDelete = (id: number) => {
-        axios
-            .delete("http://localhost:3001/categories/"+id)
-            .then(res => {
+        AdminCategoryService.delete(id)
+            .then(() => {
                 deleteCallback(id)
-            })
-            .catch(er => {
-                console.log(er)
             })
     }
 

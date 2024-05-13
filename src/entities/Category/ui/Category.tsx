@@ -8,7 +8,7 @@ interface CategoryProops {
 }
 
 export const Category = ({className, data}: CategoryProops) => {
-    const {id, img, title} = data
+    const {id, img, name} = data
     return (
         <div className={cls.category}>
             {/* <Pizza className={cls.img} /> */}

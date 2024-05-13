@@ -10,11 +10,11 @@ interface CategoryProops {
     className?: string,
     data: CategoryType,
     deleteCallback: (id: number) => void
-    editCallback: () => void
+    editCallback: (data: CategoryType) => void
 }
 
 export const AdminCategory:FC<CategoryProops> = ({index, className, data, deleteCallback, editCallback}) => {
-    const {id, img, title} = data
+    const {id, img, name} = data
 
     return (
         <div className={classNames(cls.AdminCategory, className)}>
@@ -27,8 +27,8 @@ export const AdminCategory:FC<CategoryProops> = ({index, className, data, delete
             <div className={cls.img}>
                 <img src={`http://localhost:3001/public/${img}`}/>
             </div>
-            <div className={cls.title}>
-                <b>{title}</b>
+            <div className={cls.name}>
+                <b>{name}</b>
             </div>
             
             <EditCategory
