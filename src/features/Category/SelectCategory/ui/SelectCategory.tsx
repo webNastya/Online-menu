@@ -8,23 +8,6 @@ interface SelectCategoryProps {
 }
 
 export const SelectCategory:FC<SelectCategoryProps> = ({category, setCategory}) => {
-    // const handleEdit = (data: ProductType) => {
-        // const formData = toFormData(data)
-
-        // axios
-        //     .patch("http://localhost:3001/products/"+data.id, 
-        //         formData,
-        //         { headers: {
-        //             'Content-Type': 'multipart/form-data'
-        //         }}
-        //     )
-        //     .then(res => {
-        //         editCallback()
-        //     })
-        //     .catch(er => {
-        //         console.log(er)
-        //     })
-    // }
     const options = [ "Выберите Категорию", "Паста", "Пицца" ]
 
     const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -38,7 +21,7 @@ export const SelectCategory:FC<SelectCategoryProps> = ({category, setCategory}) 
             onChange={handleSelectChange}
         >
             {options.map((cat, index) => (
-                <option value={index}>{cat}</option>
+                <option key={cat} value={index}>{cat}</option>
             ))}
         </select>
     )

@@ -1,10 +1,9 @@
-import cls from "./AdminProductList.module.scss"
-import { useCallback, useEffect, useState } from "react"
-import axios, { toFormData } from "axios"
+import { useEffect, useState } from "react"
 import { AdminProduct } from "features/Product/Admin/ui/AdminProduct"
 import { ProductType } from "entities/Product/type/ProductType"
 import { AddProduct } from "features/Product/Admin/Add"
-import { Button, ThemeButton } from "shared/ui/Button"
+import cls from "./AdminProductList.module.scss"
+import AdminProductsService from "../api/api.adminProducts"
 
 interface ProductListProops {
     className?: string
@@ -21,8 +20,7 @@ export const AdminProductList = ({className}: ProductListProops) => {
     }
 
     useEffect(()=>{
-        axios
-            .get("http://localhost:3001/products")
+        AdminProductsService.get()
             .then(res => {
                 setCards(res.data)
             })

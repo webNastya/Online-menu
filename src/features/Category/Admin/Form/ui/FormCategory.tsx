@@ -55,9 +55,8 @@ export const FormCategory:FC<FormCategoryProps> = ({data, onSubmit, mainBtnBody,
             </Button>
             <Popup 
                 position="top"
-                handlerOpenPopap={handlerOpenPopap}
                 isPopupActive={isPopupActive}
-            >
+                toggleActive={handlerOpenPopap}            >
                 <div className={classNames(cls.FormCategory)}>
                     <Input type='text' 
                         value={title}

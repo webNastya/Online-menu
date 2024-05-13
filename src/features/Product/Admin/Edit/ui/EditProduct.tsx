@@ -1,9 +1,9 @@
 import { FC } from "react"
-import axios, { toFormData } from "axios"
 import { ProductType } from "entities/Product/type/ProductType"
 import Edit from "shared/assets/btn-edit.svg"
 import cls from "./EditProduct.module.scss"
 import { FormProduct } from "features/Product/Admin/Form"
+import AdminProductService from "../../api/api.adminProduct"
 
 interface EditProductProps {
     data: ProductType,
@@ -12,20 +12,9 @@ interface EditProductProps {
 
 export const EditProduct:FC<EditProductProps> = ({data, editCallback}) => {
     const handleEdit = (data: ProductType) => {
-        const formData = toFormData(data)
-
-        axios
-            .patch("http://localhost:3001/products/"+data.id, 
-                formData,
-                { headers: {
-                    'Content-Type': 'multipart/form-data'
-                }}
-            )
+        AdminProductService.edit(data)
             .then(res => {
                 editCallback()
-            })
-            .catch(er => {
-                console.log(er)
             })
     }
     

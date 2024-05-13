@@ -65,7 +65,7 @@ export const FormProduct:FC<FormProductProps> = ({data, onSubmit, mainBtnBody, s
             </Button>
             <Popup 
                 position="top"
-                handlerOpenPopap={handlerOpenPopap}
+                toggleActive={handlerOpenPopap}
                 isPopupActive={isPopupActive}
             >
                 <div className={classNames(cls.FormProduct)}>
