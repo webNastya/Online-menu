@@ -37,11 +37,13 @@ instance.interceptors.response.use(
     ) {
       try {
         // запрос на обновление токенов
-        const resp = await instance.get("/authentication/refresh-tokens");
-        // сохраняем новый accessToken в localStorage
-        localStorage.setItem("token", resp.data.accessToken);
-        // переотправляем запрос с обновленным accessToken
-        return instance.request(originalRequest);
+        const res = await instance.get("/authentication/refresh-tokens");
+        if (res.data.accessToken) {
+          // сохраняем новый accessToken в localStorage
+          localStorage.setItem("token", res.data.accessToken);
+          // переотправляем запрос с обновленным accessToken
+          return instance.request(originalRequest);
+        }
       } catch (error) {
         console.log("AUTH ERROR");
       }
