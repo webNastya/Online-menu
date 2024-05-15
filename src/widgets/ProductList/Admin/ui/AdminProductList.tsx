@@ -10,25 +10,31 @@ interface ProductListProops {
 }
 
 export const AdminProductList = ({className}: ProductListProops) => {
-    const [cards, setCards] = useState<ProductType[]>([])
+    const [products, setProducts] = useState<ProductType[]>([])
 
-    const editCallBack = () => {
-        // Обновить карточку
+    const addCallback = (data: ProductType) => {
+        setProducts(products => [...products, data])
+    }
+    const editCallBack = (data: ProductType) => {
+        AdminProductsService.get(data.id)
+            .then(res => {
+                setProducts(products => products.map(prod => data.id === prod.id ? res.data : prod))
+            })
     }
     const deleteCallBack = (id: number) => {
-        setCards(cards => cards.filter(card => card.id !== id))
+        setProducts(products => products.filter(card => card.id !== id))
     }
 
     useEffect(()=>{
         AdminProductsService.get()
             .then(res => {
-                setCards(res.data)
+                setProducts(res.data)
             })
     }, [])
 
     return (
         <div className={cls.AdminProductList}>
-            <AddProduct/>
+            <AddProduct addCallback={ addCallback }/>
 
             <div className={cls.titlesContainer}>
                 <div className={cls.index}>
@@ -56,7 +62,7 @@ export const AdminProductList = ({className}: ProductListProops) => {
                     Категория
                 </div>
             </div>
-            {cards.map((cardData, index) => (
+            {products.map((cardData, index) => (
                 <AdminProduct 
                     key={cardData.id}
                     index={index+1}

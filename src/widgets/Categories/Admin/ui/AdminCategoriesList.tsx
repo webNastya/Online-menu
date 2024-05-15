@@ -19,7 +19,11 @@ export const AdminCategoriesList = ({className}: ProductListProops) => {
         setCategories(categories => [...categories, data])
     }
     const editCallback = (data: CategoryType) => {
-        setCategories(categories => categories.map(cat => data.id === cat.id ? data : cat))
+        axios
+            .get("http://localhost:3001/categories/"+data.id)
+            .then(res => {
+                setCategories(categories => categories.map(cat => data.id === cat.id ? res.data : cat))
+            })
     }
     const deleteCallback = (id: number) => {
         setCategories(categories => categories.filter(cat => cat.id !== id))

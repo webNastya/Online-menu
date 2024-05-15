@@ -7,14 +7,14 @@ import AdminProductService from "../../api/api.adminProduct"
 
 interface EditProductProps {
     data: ProductType,
-    editCallback: () => void
+    editCallback: (data: ProductType) => void
 }
 
 export const EditProduct:FC<EditProductProps> = ({data, editCallback}) => {
     const handleEdit = (data: ProductType) => {
         AdminProductService.edit(data)
             .then(res => {
-                editCallback()
+                editCallback(data)
             })
     }
     

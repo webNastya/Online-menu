@@ -1,8 +1,8 @@
 import { instance } from "shared/api/api.config"
 
 export default class AdminProductsService {
-    static get () {
+    static get (id?: number) {
         return instance
-            .get("/products")
+            .get("/products/" + ( id ?? '' ))
     }
 }

@@ -27,8 +27,6 @@ export const FormCategory:FC<FormCategoryProps> = ({data, onSubmit, mainBtnBody,
 
     const handleFileUploadClick = () => {
         uploadFileRef.current.click()
-        console.log(data.img);
-        
     }
 
     const handleFileUploadChange = (event: any) => {
