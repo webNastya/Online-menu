@@ -6,6 +6,7 @@ import { Popup } from "shared/ui/Popup"
 import { ProductType } from "entities/Product/type/ProductType"
 import { Input } from "shared/ui/Input"
 import { SelectCategory } from "features/Category/SelectCategory"
+import { CategoryType } from "entities/Category/type/CategoryType"
 
 interface FormProductProps {
     data: ProductType,
@@ -21,7 +22,7 @@ export const FormProduct:FC<FormProductProps> = ({data, onSubmit, mainBtnBody, s
     const [imgSource, setImgSource] = useState<string>(data.img ? `http://localhost:3001/public/${data.img}` : '')
     const [weight, setWeight] = useState<number>(data.weight)
     const [price, setPrice] = useState<number>(data.price)
-    const [category, setCategory] = useState<string>(data.category)
+    const [category, setCategory] = useState<CategoryType>(data.category)
 
     const [isPopupActive, setIsPopupActive] = useState<boolean>(false)
     const uploadFileRef = useRef<HTMLInputElement>()

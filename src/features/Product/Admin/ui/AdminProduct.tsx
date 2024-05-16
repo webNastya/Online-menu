@@ -9,7 +9,7 @@ interface ProductProops {
     className?: string,
     data: ProductType,
     deleteCallback: (id: number) => void
-    editCallback: () => void
+    editCallback: (data: ProductType) => void
 }
 
 export const AdminProduct = ({index, className, data, deleteCallback, editCallback}: ProductProops) => {

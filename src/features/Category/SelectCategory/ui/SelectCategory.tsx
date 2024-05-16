@@ -4,8 +4,8 @@ import cls from "./SelectCategory.module.scss"
 import { CategoryType } from "entities/Category/type/CategoryType"
 
 interface SelectCategoryProps {
-    category: string
-    setCategory: (cat: string) => void
+    category: CategoryType
+    setCategory: (cat: CategoryType) => void
 }
 
 export const SelectCategory:FC<SelectCategoryProps> = ({category, setCategory}) => {
@@ -13,15 +13,19 @@ export const SelectCategory:FC<SelectCategoryProps> = ({category, setCategory}) 
 
     const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
         const option = +e.target.value
-        const category = categories.find((cat) => cat.id === option).name
+        const category = categories.find((cat) => cat.id === option)
         setCategory(category)
 	}
 
     useEffect(() => {
         axios
             .get("http://localhost:3001/categories")
-            .then(res => {
-                setCategories(res.data)
+            .then(({ data }): any => {
+                const categories = data.sort((a: CategoryType, b: CategoryType) => a.id - b.id)
+                setCategories(categories)
+
+                if (category.id === 0)
+                    setCategory(categories[0])
             })
     }, [])
 
@@ -29,7 +33,7 @@ export const SelectCategory:FC<SelectCategoryProps> = ({category, setCategory}) 
         <>
             { categories &&
                 <select className={cls.select}
-                    value={categories.find((cat) => cat.name === category)?.id} 
+                    value={category.id}
                     onChange={handleSelectChange}
                 >
                     {categories.map((cat, index) => (

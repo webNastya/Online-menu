@@ -14,9 +14,7 @@ export const EditCategory:FC<EditCategoryProps> = ({data, editCallback}) => {
     const handleEdit = (data: CategoryType) => {
         AdminCategoryService.edit(data)
             .then(res => {
-                console.log(res);
-                
-                editCallback(res.data)
+                editCallback(data)
             })
     }
     
