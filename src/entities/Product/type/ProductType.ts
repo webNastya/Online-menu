@@ -1,3 +1,5 @@
+import { CategoryType } from "entities/Category/type/CategoryType";
+
 export class ProductType {
     id: number;
     img: string | File;
@@ -6,7 +8,7 @@ export class ProductType {
     description: string;
     composition: string;
     price: number;
-    category: string;
+    category: CategoryType;
     constructor() {
         this.id = 0;
         this.img = "";
@@ -15,6 +17,6 @@ export class ProductType {
         this.description = "";
         this.composition = "";
         this.price = 0;
-        this.category = "";
+        this.category = new CategoryType();
     }
 }

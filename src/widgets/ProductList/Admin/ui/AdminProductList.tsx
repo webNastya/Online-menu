@@ -28,7 +28,7 @@ export const AdminProductList = ({className}: ProductListProops) => {
     useEffect(()=>{
         AdminProductsService.get()
             .then(res => {
-                setProducts(res.data)
+                setProducts(res.data.sort((a: ProductType, b: ProductType) => a.id - b.id))
             })
     }, [])
 

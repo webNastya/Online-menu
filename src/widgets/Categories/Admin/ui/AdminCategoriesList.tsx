@@ -32,7 +32,7 @@ export const AdminCategoriesList = ({className}: ProductListProops) => {
         axios
             .get("http://localhost:3001/categories")
             .then(res => {
-                setCategories(res.data)
+                setCategories(res.data.sort((a: CategoryType, b: CategoryType) => a.id - b.id))
             })
     }
 
