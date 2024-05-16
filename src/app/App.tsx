@@ -11,6 +11,7 @@ import { Loader } from 'widgets/Loader';
 import { AdminProductsPage } from 'pages/Admin/Products';
 import { AdminCategoriesPage } from 'pages/Admin/Categories';
 import { AdminPrivateRoute } from './providers/AdminPrivateRoute';
+import { LoginPage } from 'pages/LoginPage';
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
                     <Routes>
                         <Route path={'/about'} element={<AboutPage />} />
                         <Route path={'/'} element={<MainPage />} />
+                        <Route path={'login'} element={<LoginPage />} />
                         <Route path={'admin'} element={<AdminPrivateRoute/>}>
                             <Route path={'products'} >
                                 <Route index element={<AdminProductsPage />}/>

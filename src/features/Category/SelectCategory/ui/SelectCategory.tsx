@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useEffect, useState } from "react"
-import axios, { toFormData } from "axios"
+import axios from "axios"
 import cls from "./SelectCategory.module.scss"
 import { CategoryType } from "entities/Category/type/CategoryType"
 
