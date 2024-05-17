@@ -12,6 +12,10 @@ export default class AuthService {
     }
     
     static logout() {
-        return instance.post("/authentication/logout")
+        instance.get("/authentication/logout")
+            .then((res) => {
+                localStorage.setItem("token", '');
+                window.location.reload();
+            })
     }
 }

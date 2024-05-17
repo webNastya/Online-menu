@@ -5,6 +5,7 @@ import { Button, ThemeButton } from "shared/ui/Button"
 import { Popup } from "shared/ui/Popup"
 import { Input } from "shared/ui/Input"
 import AuthService from "features/Authentication/api/api.auth"
+import CheckLogined from "shared/utils/CheckLogined"
 
 interface SignProops {
     className?: string
@@ -14,9 +15,14 @@ export const Sign = ({className}: SignProops) => {
     const [isPopupActive, setIsPopupActive] = useState<boolean>(false)
     const [login, setLogin] = useState<string>()
     const [password, setPassword] = useState<string>()
+    const logined = CheckLogined()
 
     const handlerAuth = () => {
         AuthService.login(login, password)
+    }
+
+    const handlerLogout = () => {
+        AuthService.logout()
     }
 
     const togglePopupActive = () => {
@@ -24,7 +30,11 @@ export const Sign = ({className}: SignProops) => {
     }
     return (
         <div className={classNames(cls.Sign, className)}>
-            <Button theme={ThemeButton.DEFAULT} className={cls.signBtn} onClick={togglePopupActive}>Войти</Button>
+            { logined
+                ? <Button theme={ThemeButton.DEFAULT} className={cls.signBtn} onClick={handlerLogout}>Выйти</Button>
+                // : <Button theme={ThemeButton.DEFAULT} className={cls.signBtn} onClick={togglePopupActive}>Войти</Button>
+                : null
+            }
             <Popup toggleActive={togglePopupActive} isPopupActive={isPopupActive}>
                 <div>Login</div>
                 <Input value={login} onChange={(e:ChangeEvent<HTMLInputElement>) => setLogin(e.target.value)}></Input>

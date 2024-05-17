@@ -38,7 +38,7 @@ instance.interceptors.response.use(
       try {
         // запрос на обновление токенов
         const res = await instance.get("/authentication/refresh-tokens");
-        if (res.data.accessToken) {
+        if (res.data.accessToken !== undefined) {
           // сохраняем новый accessToken в localStorage
           localStorage.setItem("token", res.data.accessToken);
           // переотправляем запрос с обновленным accessToken
