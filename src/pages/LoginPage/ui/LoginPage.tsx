@@ -4,7 +4,6 @@ import { Login } from 'widgets/Login';
 
 
 const LoginPage = () => {
-
     return (
         <div className={classNames(cls.LoginPage)}>
             <Login />
