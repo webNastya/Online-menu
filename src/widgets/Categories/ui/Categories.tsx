@@ -1,36 +1,38 @@
 import classNames from "classnames"
 import cls from "./Categories.module.scss"
-import Cupcake from "../assets/cupcake.svg"
-import Pizza from "../assets/pizza.svg"
-import Tea from "../assets/tea.svg"
-import Pasta from "../assets/pasta.svg"
+import { useEffect, useState } from "react"
+import { CategoryType } from "entities/Category/type/CategoryType"
+import { Category } from "features/Category/ui/Category"
+import axios from "axios"
 
 interface NavBarProops {
     className?: string
 }
 
 export const Categories = ({className}: NavBarProops) => {
+    const [categories, setCategories] = useState<CategoryType[]>([])
+
+    const getCategories = () => {
+        axios
+            .get("http://localhost:3001/categories")
+            .then(res => {
+                setCategories(res.data.sort((a: CategoryType, b: CategoryType) => a.id - b.id))
+            })
+    }
+
+    useEffect(()=>{
+        getCategories()
+    }, [])
+
     return (
         <div className={classNames(cls.Categories, className)}>
-            <div className={cls.category}>
-                <Pasta className={cls.img} />
-                <div>Паста</div>
-            </div>
-
-            <div className={cls.category}>
-                <Pizza className={cls.img} />
-                <div>Пицца</div>
-            </div>
-
-            <div className={cls.category}>
-                <Cupcake className={cls.img} />
-                <div>Десерты</div>
-            </div>
-
-            <div className={cls.category}>
-                <Tea className={cls.img} />
-                <div>Чай</div>
-            </div>
+            
+            {categories.map((catData) => (
+                <Category 
+                    key={catData.id}
+                    data={catData}
+                />
+            ))}
         </div>
     )
 }
