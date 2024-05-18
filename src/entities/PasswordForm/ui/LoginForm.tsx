@@ -3,13 +3,21 @@ import { Input } from "shared/ui/Input"
 import { ChangeEvent, useState } from "react"
 import { Button, ThemeButton } from "shared/ui/Button"
 import AuthService from "features/Authentication/api/api.auth"
+import { useNavigate } from "react-router-dom"
 
 export const LoginForm = () => {
-    const [login, setLogin] = useState<string>()
-    const [password, setPassword] = useState<string>()
+    const [login, setLogin] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
+    let navigate = useNavigate();
 
     const handlerAuth = () => {
         AuthService.login(login, password)
+            .then(
+                () => {
+                    navigate(-1)
+                    setTimeout(() => window.location.reload(), 300)
+                }
+            )
     }
     
     return (
