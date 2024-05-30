@@ -1,7 +1,7 @@
 import cls from "./AdminCategoriesList.module.scss"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { CategoryType } from "entities/Category/type/CategoryType"
+import { CategoryType } from "features/Category/type/CategoryType"
 import { AdminCategory } from "features/Category/Admin/ui/AdminCategory"
 import { AddCategory } from "features/Category/Admin/Add"
 
@@ -12,7 +12,7 @@ interface ProductListProops {
 export const AdminCategoriesList = ({className}: ProductListProops) => {
     const [categories, setCategories] = useState<CategoryType[]>([])
 
-    const getCallback = (data: CategoryType[]) => {
+    const getCallback = (data: CategoryType[]) => { 
         setCategories(data)
     }
     const addCallback = (data: CategoryType) => {

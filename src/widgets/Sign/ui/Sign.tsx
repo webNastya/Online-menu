@@ -32,7 +32,6 @@ export const Sign = ({className}: SignProops) => {
         <div className={classNames(cls.Sign, className)}>
             { logined
                 ? <Button theme={ThemeButton.DEFAULT} className={cls.signBtn} onClick={handlerLogout}>Выйти</Button>
-                // : <Button theme={ThemeButton.DEFAULT} className={cls.signBtn} onClick={togglePopupActive}>Войти</Button>
                 : null
             }
             <Popup toggleActive={togglePopupActive} isPopupActive={isPopupActive}>

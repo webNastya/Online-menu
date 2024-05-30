@@ -4,7 +4,7 @@ import { ChangeEvent, FC, useRef, useState } from "react"
 import classNames from "classnames"
 import { Popup } from "shared/ui/Popup"
 import { Input } from "shared/ui/Input"
-import { CategoryType } from "entities/Category/type/CategoryType"
+import { CategoryType } from "features/Category/type/CategoryType"
 
 interface FormCategoryProps {
     data: CategoryType,

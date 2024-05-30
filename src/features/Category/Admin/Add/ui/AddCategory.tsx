@@ -1,5 +1,5 @@
 import { FormCategory } from "../../Form"
-import { CategoryType } from "entities/Category/type/CategoryType"
+import { CategoryType } from "features/Category/type/CategoryType"
 import AdminCategoryService from "../../api/api.adminCategory"
 import { FC } from "react"
 

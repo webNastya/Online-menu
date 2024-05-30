@@ -1,11 +1,19 @@
 .Categories {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 2em;
 }
 
 @media screen and (max-width: 750px) {
     .Categories {
         gap: 1em;
+        margin-bottom: 32px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .Categories {
+        margin-bottom: 24px;
     }
 }

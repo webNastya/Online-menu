@@ -1,4 +1,4 @@
-import { CategoryType } from "entities/Category/type/CategoryType";
+import { CategoryType } from "features/Category/type/CategoryType";
 
 export class ProductType {
     id: number;

@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import cls from "./AdminCategory.module.scss"
-import { CategoryType } from "entities/Category/type/CategoryType"
+import { CategoryType } from "features/Category/type/CategoryType"
 import { FC } from "react"
 import { EditCategory } from "../Edit"
 import { DeleteCategory } from "../Delete"

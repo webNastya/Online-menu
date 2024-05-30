@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import cls from "./Categories.module.scss"
 import { useEffect, useState } from "react"
-import { CategoryType } from "entities/Category/type/CategoryType"
+import { CategoryType } from "features/Category/type/CategoryType"
 import { Category } from "features/Category/ui/Category"
 import axios from "axios"
 

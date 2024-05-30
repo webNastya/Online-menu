@@ -6,7 +6,7 @@ import { Popup } from "shared/ui/Popup"
 import { ProductType } from "entities/Product/type/ProductType"
 import { Input } from "shared/ui/Input"
 import { SelectCategory } from "features/Category/SelectCategory"
-import { CategoryType } from "entities/Category/type/CategoryType"
+import { CategoryType } from "features/Category/type/CategoryType"
 
 interface FormProductProps {
     data: ProductType,
