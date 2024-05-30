@@ -13,30 +13,33 @@ interface ProductProops {
 }
 
 export const AdminProduct = ({index, className, data, deleteCallback, editCallback}: ProductProops) => {
-    const {id, img, title, weight, description, composition, price} = data
+    const {id, img, title, weight, description, composition, price, category} = data
 
     return (
         <div className={classNames(cls.AdminProduct, className)}>
             <div className={cls.index}>
-                {index}
+                { index }
             </div>
             <div className={cls.id}>
-                <b>{id}</b>
+                <b>{ id }</b>
             </div>
             <div className={cls.img}>
                 <img src={`http://localhost:3001/public/${img}`}/>
             </div>
             <div className={cls.title}>
-                <b>{title}</b>
+                <b>{ title }</b>
             </div>
             <div className={cls.weight}>
-                {`${weight}г`}
+                { `${weight} г` }
             </div>
             <div className={cls.composition}>
-                {composition}
+                { composition }
             </div>
             <div className={cls.price}>
-                {`${price} ₽`}
+                { `${price} ₽` }
+            </div>
+            <div className={cls.category}>
+                { category.name }
             </div>
             <EditProduct
                 data={data}
