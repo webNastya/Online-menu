@@ -1,12 +1,11 @@
-import classNames from 'classnames';
 import cls from './LoginPage.module.scss';
-import { Login } from 'widgets/Login';
+import { LoginForm } from 'widgets/LoginForm';
 
 
 const LoginPage = () => {
     return (
-        <div className={classNames(cls.LoginPage)}>
-            <Login />
+        <div className={cls.LoginPage}>
+            <LoginForm />
         </div>
     );
 };

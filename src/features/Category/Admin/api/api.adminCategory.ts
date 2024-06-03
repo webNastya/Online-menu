@@ -1,5 +1,5 @@
 import { toFormData } from "axios";
-import { CategoryType } from "features/Category/type/CategoryType";
+import { CategoryType } from "entities/Category/type/CategoryType";
 import { instance } from "shared/api/api.config"
 
 export default class AdminCategoryService {

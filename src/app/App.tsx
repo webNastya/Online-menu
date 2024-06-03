@@ -8,8 +8,8 @@ import { MainPage } from 'pages/MainPage';
 import { NavBar } from 'widgets/NavBar';
 import { ErrorPage } from 'pages/ErrorPage';
 import { Loader } from 'widgets/Loader';
-import { AdminProductsPage } from 'pages/Admin/Products';
-import { AdminCategoriesPage } from 'pages/Admin/Categories';
+import { AdminProductsPage } from 'pages/Admin/Product';
+import { AdminCategoriesPage } from 'pages/Admin/Category';
 import { AdminPrivateRoute } from './providers/AdminPrivateRoute';
 import { LoginPage } from 'pages/LoginPage';
 

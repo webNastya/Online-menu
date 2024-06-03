@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useEffect, useState } from "react"
 import axios from "axios"
 import cls from "./SelectCategory.module.scss"
-import { CategoryType } from "features/Category/type/CategoryType"
+import { CategoryType } from "entities/Category/type/CategoryType"
 
 interface SelectCategoryProps {
     category: CategoryType

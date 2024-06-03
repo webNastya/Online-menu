@@ -1,7 +1,7 @@
 import { FormProduct } from "features/Product/Admin/Form"
-import { ProductType } from "features/Product/type/ProductType"
 import AdminProductService from "../../api/api.adminProduct"
 import { FC } from "react"
+import { ProductType } from "entities/Product/type/ProductType"
 
 const data = new ProductType()
 

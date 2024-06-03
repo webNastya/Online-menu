@@ -1,0 +1,19 @@
+.CategoryList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+@media screen and (max-width: 750px) {
+    .CategoryList {
+        gap: 1em;
+        margin-bottom: 32px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .CategoryList {
+        margin-bottom: 24px;
+    }
+}

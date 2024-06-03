@@ -3,10 +3,10 @@ import cls from "./FormProduct.module.scss"
 import { ChangeEvent, FC, useRef, useState } from "react"
 import classNames from "classnames"
 import { Popup } from "shared/ui/Popup"
-import { ProductType } from "features/Product/type/ProductType"
 import { Input } from "shared/ui/Input"
 import { SelectCategory } from "features/Category/SelectCategory"
-import { CategoryType } from "features/Category/type/CategoryType"
+import { ProductType } from "entities/Product/type/ProductType"
+import { CategoryType } from "entities/Category/type/CategoryType"
 
 interface FormProductProps {
     data: ProductType,

@@ -1,9 +1,9 @@
 import { FC } from "react"
 import Edit from "shared/assets/btn-edit.svg"
 import cls from "./EditCategory.module.scss"
-import { CategoryType } from "features/Category/type/CategoryType"
 import { FormCategory } from "../../Form"
 import AdminCategoryService from "../../api/api.adminCategory"
+import { CategoryType } from "entities/Category/type/CategoryType"
 
 interface EditCategoryProps {
     data: CategoryType,

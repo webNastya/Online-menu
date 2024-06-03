@@ -1,12 +1,7 @@
-import classNames from "classnames"
 import cls from "./Loader.module.scss"
 
-interface LoaderProops {
-    className?: string
-}
-
-export const Loader = ({className}: LoaderProops) => {
+export const Loader = () => {
     return (
-        <div className={classNames(cls.Loader)}></div>
+        <div className={cls.Loader}></div>
     )
 }

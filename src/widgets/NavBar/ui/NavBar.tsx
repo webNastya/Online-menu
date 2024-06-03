@@ -1,16 +1,12 @@
-import classNames from "classnames"
 import cls from "./NavBar.module.scss"
 import { AppLink } from "shared/ui/AppLink"
-import { ThemeToggle } from "widgets/ThemeToggle"
-import { Sign } from "widgets/Sign"
+import { ThemeToggle } from "features/ThemeToggle"
+import { Sign } from "features/Sign"
 
-interface NavBarProops {
-    className?: string
-}
 
-export const NavBar = ({className}: NavBarProops) => {
+export const NavBar = () => {
     return (
-        <div className={classNames(cls.NavBar, className)}>
+        <div className={cls.NavBar}>
             <AppLink to={'/'} className={cls.firstLink}>Меню</AppLink>
             <AppLink to={'/about'}>О сайте</AppLink>
             <Sign/>
