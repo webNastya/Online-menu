@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { ProductType } from "entities/Product/type/ProductType"
+import { ProductType } from "features/Product/type/ProductType"
 import Edit from "shared/assets/btn-edit.svg"
 import cls from "./EditProduct.module.scss"
 import { FormProduct } from "features/Product/Admin/Form"

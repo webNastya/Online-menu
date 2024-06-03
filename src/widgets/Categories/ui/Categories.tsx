@@ -2,7 +2,7 @@ import classNames from "classnames"
 import cls from "./Categories.module.scss"
 import { useEffect, useState } from "react"
 import { CategoryType } from "features/Category/type/CategoryType"
-import { Category } from "features/Category/ui/Category"
+import { Category } from "features/Category"
 import axios from "axios"
 
 interface NavBarProops {

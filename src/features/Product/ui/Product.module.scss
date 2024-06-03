@@ -47,13 +47,13 @@
 }
 
 @media screen and (max-width: 750px) {
-    .Card {
+    .Product {
         width: 100%;
         flex-direction: row;
         margin-top: 20px;
     }
 
-    .cardContainer {
+    .prodContainer {
         padding: 8px 8px 8px 60px;
         position: relative;
         left: -48px;
@@ -68,7 +68,7 @@
 }
 
 @media screen and (max-width: 560px) {
-    .cardContainer {
+    .prodContainer {
         width: 280px;
         left: -24px;
         font-size: 14px;

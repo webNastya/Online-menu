@@ -1,5 +1,5 @@
 import { toFormData } from "axios";
-import { ProductType } from "entities/Product/type/ProductType";
+import { ProductType } from "features/Product/type/ProductType";
 import { instance } from "shared/api/api.config"
 
 export default class AdminProductService {

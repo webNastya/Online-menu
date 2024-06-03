@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { AdminProduct } from "features/Product/Admin/ui/AdminProduct"
-import { ProductType } from "entities/Product/type/ProductType"
+import { ProductType } from "features/Product/type/ProductType"
 import { AddProduct } from "features/Product/Admin/Add"
 import cls from "./AdminProductList.module.scss"
 import AdminProductsService from "../api/api.adminProducts"
