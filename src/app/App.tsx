@@ -12,6 +12,7 @@ import { AdminProductsPage } from 'pages/Admin/Product';
 import { AdminCategoriesPage } from 'pages/Admin/Category';
 import { AdminPrivateRoute } from './providers/AdminPrivateRoute';
 import { LoginPage } from 'pages/LoginPage';
+import BasketProvider from 'entities/Basket/provider/BasketProvider';
 
 
 
@@ -20,26 +21,27 @@ const App = () => {
 
     return (
         <div className={classNames('app', theme)}>
-            <NavBar/>
-            <div className="content">
-                <Suspense fallback={<Loader />}>
-                    <Routes>
-                        <Route path={'/about'} element={<AboutPage />} />
-                        <Route path={'/'} element={<MainPage />} />
-                        <Route path={'login'} element={<LoginPage />} />
-                        <Route path={'admin'} element={<AdminPrivateRoute/>}>
-                            <Route path={'products'} >
-                                <Route index element={<AdminProductsPage />}/>
+            <BasketProvider>
+                <NavBar/>
+                <div className="content">
+                    <Suspense fallback={<Loader />}>
+                        <Routes>
+                            <Route path={'/about'} element={<AboutPage />} />
+                            <Route path={'/'} element={<MainPage />} />
+                            <Route path={'login'} element={<LoginPage />} />
+                            <Route path={'admin'} element={<AdminPrivateRoute/>}>
+                                <Route path={'products'} >
+                                    <Route index element={<AdminProductsPage />}/>
+                                </Route>
+                                <Route path={'categories'} >
+                                    <Route index element={<AdminCategoriesPage />}/>
+                                </Route>
                             </Route>
-                            <Route path={'categories'} >
-                                <Route index element={<AdminCategoriesPage />}/>
-                            </Route>
-                        </Route>
-                        <Route path={'*'} element={<ErrorPage />} />
-                    </Routes>
-                </Suspense>
-            </div>
-            
+                            <Route path={'*'} element={<ErrorPage />} />
+                        </Routes>
+                    </Suspense>
+                </div>
+            </BasketProvider>
         </div>
     );
 };

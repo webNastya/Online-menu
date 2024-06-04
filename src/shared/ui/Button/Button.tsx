@@ -4,7 +4,8 @@ import { ButtonHTMLAttributes, FC } from "react"
 
 export enum ThemeButton {
     CLEAR = "clear",
-    DEFAULT = "default"
+    DEFAULT = "default",
+    DEFAULT_DISABLED = "default-disabled"
 }
 
 interface ButtonProops extends ButtonHTMLAttributes<HTMLButtonElement> {

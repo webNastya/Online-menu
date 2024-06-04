@@ -17,3 +17,11 @@
     padding: 8px;
     color: var(--primary-color);
 }
+
+.default-disabled {
+    @extend .clear;
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 8px;
+    background: var(--primary-color);
+}
