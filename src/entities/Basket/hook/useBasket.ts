@@ -1,5 +1,5 @@
-import { useContext, useEffect } from "react"
-import { COOKIE_BASKET_KEY, BasketContext } from "../context/BasketContext"
+import { useContext } from "react"
+import { BasketContext } from "../context/BasketContext"
 import { BasketType } from "../type/BasketType";
 import { ProductType } from "entities/Product/type/ProductType";
 

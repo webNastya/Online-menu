@@ -1,6 +1,5 @@
 import { createContext } from "react";
 import { BasketType } from "../type/BasketType";
-import { Basket } from "../ui/Basket";
 
 export interface BasketContextProps {
     basket?: BasketType;
