@@ -3,10 +3,12 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { CategoryType } from "entities/Category/type/CategoryType"
 import { Category } from "entities/Category"
+import { useCategory } from "entities/Category/hook/useCategory"
 
 
 export const CategoryList = () => {
     const [categories, setCategories] = useState<CategoryType[]>([])
+    const { setCategory } = useCategory()
 
     const getCategories = () => {
         axios
@@ -27,6 +29,7 @@ export const CategoryList = () => {
                 <Category 
                     key={catData.id}
                     data={catData}
+                    onClick={setCategory}
                 />
             ))}
         </div>
