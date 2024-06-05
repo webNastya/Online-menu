@@ -1,0 +1,39 @@
+.ProductBasket {
+    display: flex;
+}
+
+.img {
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    position: relative;
+    left: 36px;
+}
+
+.prodContainer {
+    width: 80%;
+    background-color: var(--bars-bg-color);
+    border-radius: 20px;
+    padding: 16px 16px 16px 60px;
+}
+
+.twoBlocks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.twoBlocks b {
+    font-size: 18px;
+}
+
+.price {
+    font-size: clamp(1rem, 0.6875rem + 1vw, 1.25rem);
+}
+
+@media screen and (max-width: 900px) {
+    .prodContainer {
+        width: 100%;
+    }
+}

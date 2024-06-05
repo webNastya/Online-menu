@@ -3,7 +3,6 @@ import {Route, Routes} from 'react-router-dom';
 import './styles/index.scss';
 import { useTheme } from '../shared/config/ThemeProvider/hook/useTheme';
 import classNames from 'classnames';
-import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
 import { NavBar } from 'widgets/NavBar';
 import { ErrorPage } from 'pages/ErrorPage';
@@ -13,6 +12,7 @@ import { AdminCategoriesPage } from 'pages/Admin/Category';
 import { AdminPrivateRoute } from './providers/AdminPrivateRoute';
 import { LoginPage } from 'pages/LoginPage';
 import BasketProvider from 'entities/Basket/provider/BasketProvider';
+import BasketPage from 'pages/AboutPage/ui/BasketPage';
 
 
 
@@ -26,7 +26,7 @@ const App = () => {
                 <div className="content">
                     <Suspense fallback={<Loader />}>
                         <Routes>
-                            <Route path={'/about'} element={<AboutPage />} />
+                            <Route path={'/basket'} element={<BasketPage />} />
                             <Route path={'/'} element={<MainPage />} />
                             <Route path={'login'} element={<LoginPage />} />
                             <Route path={'admin'} element={<AdminPrivateRoute/>}>

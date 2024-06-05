@@ -39,7 +39,7 @@ export const Product = ({className, data}: ProductProops) => {
                     </div>
                     { isInBasket 
                         ?
-                        <Button theme={ThemeButton.DEFAULT_DISABLED} disabled>
+                        <Button theme={ThemeButton.DEFAULT_DISABLED} disabled className={cls.added}>
                             Добавлено
                         </Button>
                         :

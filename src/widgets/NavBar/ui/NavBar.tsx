@@ -8,7 +8,7 @@ export const NavBar = () => {
     return (
         <div className={cls.NavBar}>
             <AppLink to={'/'} className={cls.firstLink}>Меню</AppLink>
-            <AppLink to={'/about'}>О сайте</AppLink>
+            <AppLink to={'/basket'}>Корзина</AppLink>
             <Sign/>
             <ThemeToggle/>
         </div>

@@ -34,6 +34,9 @@
     font-size: clamp(1rem, 0.6875rem + 1vw, 1.25rem);
 }
 
+.added {
+    color: var(--bars-bg-color);
+}
 
 @media screen and (max-width: 900px) {
     .img {
@@ -48,7 +51,6 @@
 
 @media screen and (max-width: 750px) {
     .Product {
-        width: 100%;
         flex-direction: row;
         margin-top: 20px;
     }
@@ -68,6 +70,10 @@
 }
 
 @media screen and (max-width: 560px) {
+    .Product {
+        width: 100%;
+    }
+
     .prodContainer {
         width: 280px;
         left: -24px;
