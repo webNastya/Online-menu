@@ -24,7 +24,14 @@ export function useBasket(): UseBasketResult {
     }
 
     const updateBasket = (product: ProductType) => {
-        if (!isProductInside(product))
+        if (isProductInside(product)){
+            console.log(basket.products.filter( p => p.id !== product.id ));
+
+            setBasket({...basket, 
+                products: basket.products.filter( p => p.id !== product.id )
+            })
+        }
+        else
             setBasket({...basket, 
                 products: [...basket.products, product]
             })
