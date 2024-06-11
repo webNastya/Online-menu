@@ -3,7 +3,7 @@ import cls from "./Product.module.scss"
 import { Button, ThemeButton } from "shared/ui/Button"
 import { ProductType } from "../type/ProductType"
 import { useBasket } from "entities/Basket/hook/useBasket"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 interface ProductProops {
     className?: string
@@ -40,11 +40,11 @@ export const Product = ({className, data}: ProductProops) => {
                     { isInBasket 
                         ?
                         <Button theme={ThemeButton.DEFAULT_DISABLED} onClick={ handlerToBasket } className={cls.added}>
-                            Добавлено
+                            Удалить
                         </Button>
                         :
                         <Button theme={ThemeButton.DEFAULT} onClick={ handlerToBasket }>
-                            В корзину
+                            Добавить
                         </Button>
                     }
                 </div>

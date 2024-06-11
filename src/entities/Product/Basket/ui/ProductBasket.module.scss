@@ -32,6 +32,12 @@
     font-size: clamp(1rem, 0.6875rem + 1vw, 1.25rem);
 }
 
+.delete {
+    width: 20px;
+    height: 20px;
+    fill: var(--primary-color);
+}
+
 @media screen and (max-width: 900px) {
     .prodContainer {
         width: 100%;
