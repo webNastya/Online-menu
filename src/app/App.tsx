@@ -12,7 +12,7 @@ import { AdminCategoriesPage } from 'pages/Admin/Category';
 import { AdminPrivateRoute } from './providers/AdminPrivateRoute';
 import { LoginPage } from 'pages/LoginPage';
 import BasketProvider from 'entities/Basket/provider/BasketProvider';
-import BasketPage from 'pages/AboutPage/ui/BasketPage';
+import { BasketPage } from "pages/BasketPage";
 
 
 

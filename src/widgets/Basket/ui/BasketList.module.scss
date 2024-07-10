@@ -1,38 +1,6 @@
-.BasketList {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
 .products {
     width: 50%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-}
-
-.total {
-    height: 160px;
-    border: 2px solid var(--bars-bg-color);
-    border-radius: 20px;
-    padding: 16px;
-}
-
-.twoBlocks {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-}
-
-@media screen and (max-width: 900px) {
-    .BasketList {
-        justify-content: space-between;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    .BasketList {
-        flex-direction: column;
-    }
 }

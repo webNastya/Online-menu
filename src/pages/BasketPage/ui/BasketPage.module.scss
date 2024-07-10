@@ -1,0 +1,17 @@
+.BasketPage {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 900px) {
+    .BasketPage {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .BasketPage {
+        flex-direction: column;
+    }
+}

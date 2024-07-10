@@ -1,0 +1,15 @@
+.total {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    height: 160px;
+    border: 2px solid var(--bars-bg-color);
+    border-radius: 20px;
+    padding: 16px;
+}
+
+.twoBlocks {
+    display: flex;
+    justify-content: space-between;
+}
