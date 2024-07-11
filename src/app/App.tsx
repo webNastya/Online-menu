@@ -7,12 +7,13 @@ import { MainPage } from 'pages/MainPage';
 import { NavBar } from 'widgets/NavBar';
 import { ErrorPage } from 'pages/ErrorPage';
 import { Loader } from 'widgets/Loader';
-import { AdminProductsPage } from 'pages/Admin/Product';
-import { AdminCategoriesPage } from 'pages/Admin/Category';
+import { AdminProductsPage } from 'pages/AdminPage/Product';
+import { AdminCategoriesPage } from 'pages/AdminPage/Category';
 import { AdminPrivateRoute } from './providers/AdminPrivateRoute';
 import { LoginPage } from 'pages/LoginPage';
 import BasketProvider from 'entities/Basket/provider/BasketProvider';
 import { BasketPage } from "pages/BasketPage";
+import {AdminPage} from "pages/AdminPage";
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
                             <Route path={'/'} element={<MainPage />} />
                             <Route path={'login'} element={<LoginPage />} />
                             <Route path={'admin'} element={<AdminPrivateRoute/>}>
+                                    <Route index element={<AdminPage />}/>
                                 <Route path={'products'} >
                                     <Route index element={<AdminProductsPage />}/>
                                 </Route>
