@@ -1,7 +1,7 @@
 # online-menu
 
 Демонстрация основного экрана приложения
-![gif demo main](https://github.com/webNastya/Online-menu/tree/main/demo/demo_main.gif)
+![gif demo main](https://github.com/webNastya/Online-menu/blob/main/demo/demo_main.gif)
 
 Демонстрация экрана администратора
-![gif demo admin](https://github.com/webNastya/Online-menu/tree/main/demo/demo_admin.gif)
+![gif demo admin](https://github.com/webNastya/Online-menu/blob/main/demo/demo_admin.gif)
