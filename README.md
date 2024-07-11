@@ -24,7 +24,7 @@
 GitHub <a href="https://github.com/Snexok/online-menu-back">online-menu-back</a></br>
 Инструкция по развёртыванию серверной части приложения находится в репозитории back-end
 </br></br>
-Для серверной части приложения используются:</br>
+Для серверной части приложения используются:</br></br>
  - Nest.JS </br>
  - PostgreSQL </br>
  - TypeORM </br>
